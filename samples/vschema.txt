@@ -1,0 +1,29 @@
+{
+  "Keyspaces": {
+    "test_keyspace": {
+      "Sharded": false,
+      "Vindexes": {
+        "msg_index": {
+          "Type": "hash_autoinc",
+          "Params": {
+            "Table": "test_table",
+            "Column": "id"
+          }
+        }
+      },
+      "Classes": {
+        "test_table": {
+          "ColVindexes": [
+            {
+              "Col": "id",
+              "Name": "msg_index"
+            }
+          ]
+        }
+      },
+      "Tables": {
+        "test_table": "test_table"
+      }
+    }
+  }
+}
